@@ -12,9 +12,7 @@ public class HewwoKitty {
             String userString = userInput.nextLine();
             if (userString.equals("bye")) {
                 run = false;
-                System.out.println("*************************************************");
-                System.out.println("goodbwye! uwu");
-                System.out.println("*************************************************");
+                printBye();
             } else {
                 if (userString.equals("list")) {
                     System.out.print(taskList);
@@ -24,7 +22,7 @@ public class HewwoKitty {
                 } else if (userString.split(" ")[0].equals("unmark")) {
                     int taskNum = Integer.parseInt(userString.split(" ")[1]);
                     taskList.unmarkDone(taskNum);
-                } else {
+                } else { // add tasks
                     taskList.addTask(userString);
                 }
             }
@@ -50,5 +48,9 @@ public class HewwoKitty {
         System.out.println("*************************************************");
     }
 
-
+    public static void printBye() {
+        System.out.println("*************************************************");
+        System.out.println("goodbwye! uwu");
+        System.out.println("*************************************************");
+    }
 }

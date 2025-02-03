@@ -15,10 +15,19 @@ public class TaskList {
         this.tasks.get(i-1).unmarkAsDone();
     }
 
-    public void addTask(String message) {
-        this.tasks.add(new Task(message));
+    public void addTask(String userString) {
+        Task t;
+        if (userString.contains("todo")) {
+            t = new Todo(userString.split(" ", 2)[1]);
+        } else if (userString.contains("deadline")) {
+            t = new Deadline(userString.split(" ", 2)[1]);
+        } else {
+            t = new Event(userString.split(" ", 2)[1]);
+        }
+        this.tasks.add(t);
         System.out.println("*************************************************");
-        System.out.println("added: " + message);
+        System.out.println("i've added youw new task: \n" + t);
+        System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
         System.out.println("*************************************************");
     }
 
