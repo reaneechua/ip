@@ -22,8 +22,10 @@ public class HewwoKitty {
                 } else if (userString.split(" ")[0].equals("unmark")) {
                     int taskNum = Integer.parseInt(userString.split(" ")[1]);
                     taskList.unmarkDone(taskNum);
-                } else { // add tasks
+                } else if (userString.contains("todo") || userString.contains("deadline") || userString.contains("event")) { // add tasks
                     taskList.addTask(userString);
+                } else {
+                    System.out.println("i hawve no ideaw what youwe twying to say :( twy again <3");
                 }
             }
         }
