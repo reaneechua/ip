@@ -3,12 +3,13 @@ import java.util.Scanner;
 
 public class HewwoKitty {
     public static void main(String[] args) {
-        printStart();
+        //printStart();
+        System.out.println("HewwoKitty");
 
         boolean run = true;
         TaskList taskList = new TaskList();
+        Scanner userInput = new Scanner(System.in);
         while (run) {
-            Scanner userInput = new Scanner(System.in);
             String userString = userInput.nextLine();
             if (userString.equals("bye")) {
                 run = false;
