@@ -16,28 +16,40 @@ public class TaskList {
     }
 
     public void addTask(String userString) {
-        Task t;
+        Task t = null;
         if (userString.contains("todo")) {
-            t = new Todo(userString.split(" ", 2)[1]);
+            String temp = userString.replaceFirst("todo", "");
+            if (!temp.equals("")) {
+                t = new Todo(userString.split(" ", 2)[1]);
+            } else {
+                System.out.println("*************************************************");
+                System.out.println("descwiptwion of a todo cawn't be empty! twy again :3");
+                System.out.println("*************************************************");
+            }
         } else if (userString.contains("deadline")) {
             t = new Deadline(userString.split(" ", 2)[1]);
         } else {
             t = new Event(userString.split(" ", 2)[1]);
         }
-        this.tasks.add(t);
-        System.out.println("*************************************************");
-        System.out.println("i've added youw new task: \n" + t);
-        System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
-        System.out.println("*************************************************");
+        if (!(t == null)) { //if not null, add to list
+            this.tasks.add(t);
+            System.out.println("*************************************************");
+            System.out.println("i've added youw new task: \n" + t);
+            System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
+            System.out.println("*************************************************");
+        }
+
+
     }
 
     @Override
     public String toString() {
+        String border = "*************************************************\n";
         String s = "";
         for (int i = 0; i < this.tasks.size(); i++) {
             int currTask = i+1;
             s +=  currTask + ". " + this.tasks.get(i).toString() + "\n";
         }
-        return s;
+        return border + s + border;
     }
 }
