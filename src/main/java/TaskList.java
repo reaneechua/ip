@@ -38,8 +38,14 @@ public class TaskList {
             System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
             System.out.println("*************************************************");
         }
+    }
 
-
+    public void removeTask(int i) {
+        System.out.println("*************************************************");
+        System.out.println("i've wemoved youw task: \n" + this.tasks.get(i-1).toString());
+        this.tasks.remove(i-1);
+        System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
+        System.out.println("*************************************************");
     }
 
     @Override
