@@ -1,4 +1,9 @@
+package hewwokitty.parser;
+
 import java.util.Scanner;
+import hewwokitty.task.TaskList;
+import hewwokitty.storage.Storage;
+import hewwokitty.ui.Ui;
 
 public class Parser {
     private Scanner scanner;

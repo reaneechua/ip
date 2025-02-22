@@ -1,3 +1,5 @@
+package hewwokitty.ui;
+
 public class Ui {
     public static void printStart() {
         String logo = "⠀⠀⠀⠀⢀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⣠⠾⠛⠶⣄⢀⣠⣤⠴⢦⡀⠀⠀⠀⠀\n" +
@@ -27,6 +29,12 @@ public class Ui {
     public static void printInvalidCommand() {
         System.out.println("*************************************************");
         System.out.println("i hawve no ideaw what youwe twying to say :( twy again <3");
+        System.out.println("*************************************************");
+    }
+
+    public static void printInvalidDate() {
+        System.out.println("*************************************************");
+        System.out.println("date and time entewed shouwd be in yyyy-MM-dd HHmm </3");
         System.out.println("*************************************************");
     }
 }

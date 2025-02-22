@@ -1,5 +1,8 @@
+package hewwokitty.task;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import hewwokitty.ui.Ui;
 
 public class Deadline extends Task {
     private LocalDate deadline;

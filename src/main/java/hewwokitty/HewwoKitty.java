@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+package hewwokitty;
+
+import hewwokitty.task.TaskList;
+import hewwokitty.parser.Parser;
+import hewwokitty.ui.Ui;
 
 public class HewwoKitty {
     public static void main(String[] args) {

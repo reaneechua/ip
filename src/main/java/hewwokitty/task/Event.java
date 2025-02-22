@@ -1,3 +1,5 @@
+package hewwokitty.task;
+
 public class Event extends Task {
     private String fromDate;
     private String toDate;

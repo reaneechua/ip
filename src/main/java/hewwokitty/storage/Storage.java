@@ -1,6 +1,9 @@
+package hewwokitty.storage;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import hewwokitty.task.TaskList;
 
 public class Storage {
     public static void writeToFile(TaskList tasks) {

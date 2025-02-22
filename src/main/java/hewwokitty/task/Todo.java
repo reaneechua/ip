@@ -1,3 +1,5 @@
+package hewwokitty.task;
+
 public class Todo extends Task {
     public Todo(String message) {
         super(message);
