@@ -2,15 +2,25 @@ package hewwokitty.task;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import hewwokitty.ui.Ui;
 
 public class Deadline extends Task {
     private LocalDate deadline;
 
-    public Deadline(String message) {
-        super(message.split("/")[0]);
-        String dateEntered = message.split("/")[1].split(" ",2)[1];
-        this.deadline = LocalDate.parse(dateEntered);
+    public Deadline(String description, String dateEntered) {
+        super(description);
+        try {
+            this.deadline = LocalDate.parse(dateEntered);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("");
+        }
+    }
+
+    @Override
+    public String writeToFile() {
+        return "D|" + super.writeToFile() + "|" + this.deadline + "\n";
     }
 
     @Override
@@ -21,5 +31,4 @@ public class Deadline extends Task {
     private String printDeadline() {
         return this.deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
     }
-
 }

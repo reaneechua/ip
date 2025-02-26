@@ -4,10 +4,15 @@ public class Event extends Task {
     private String fromDate;
     private String toDate;
 
-    public Event(String message) {
-        super(message.split("/")[0]);
-        this.fromDate = message.split("/")[1].split(" ", 2)[1];
-        this.toDate = message.split("/")[2].split(" ", 2)[1];
+    public Event(String message, String fromDate, String toDate) {
+        super(message);
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+    }
+
+    @Override
+    public String writeToFile() {
+        return "E|" + super.writeToFile() + "|" + this.fromDate + "|" + this.toDate + "\n";
     }
 
     @Override

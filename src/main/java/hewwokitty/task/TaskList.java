@@ -1,6 +1,7 @@
 package hewwokitty.task;
 
 import java.util.ArrayList;
+import hewwokitty.ui.Ui;
 
 public class TaskList {
     private ArrayList<Task> tasks;
@@ -19,21 +20,34 @@ public class TaskList {
 
     public void addTask(String userString) {
         Task t = null;
-        if (userString.contains("todo")) {
-            String temp = userString.replaceFirst("todo", "");
-            if (!temp.equals("")) {
-                t = new Todo(userString.split(" ", 2)[1]);
-            } else {
-                System.out.println("*************************************************");
-                System.out.println("descwiptwion of a todo cawn't be empty! twy again :3");
-                System.out.println("*************************************************");
-            }
-        } else if (userString.contains("deadline")) {
-            t = new Deadline(userString.split(" ", 2)[1]);
-        } else {
-            t = new Event(userString.split(" ", 2)[1]);
+        String message;
+        String command = userString.split(" ")[0];
+        String temp;
+
+        switch (command) {
+            case "todo":
+                temp = userString.split(" ",2)[1];
+                if (!temp.equals("")) {
+                    t = new Todo(temp);
+                } else {
+                    Ui.printInvalidDescription();
+                }
+                break;
+            case "deadline":
+                temp = userString.split(" ",2)[1];
+                message = temp.split("/")[0];
+                String date = temp.split("/")[1].split(" ",2)[1];
+                t = new Deadline(message, date);
+                break;
+            case "event":
+                temp = userString.split(" ",2)[1];
+                message = temp.split("/")[0];
+                String fromDate = temp.split("/")[1].split(" ",2)[1];
+                String toDate = temp.split("/")[2].split(" ",2)[1];
+                t = new Event(message, fromDate, toDate);
+                break;
         }
-        if (!(t == null)) { //if not null, add to list
+        if (t != null) {
             this.tasks.add(t);
             System.out.println("*************************************************");
             System.out.println("i've added youw new task: \n" + t);
@@ -48,6 +62,18 @@ public class TaskList {
         this.tasks.remove(i-1);
         System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
         System.out.println("*************************************************");
+    }
+
+    public void addTaskFromFile(Task task) {
+        this.tasks.add(task);
+    }
+
+    public String writeToFile() {
+        String s = "";
+        for (Task t : tasks) {
+            s = s + t.writeToFile();
+        }
+        return s;
     }
 
     @Override

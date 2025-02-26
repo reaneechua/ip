@@ -9,6 +9,10 @@ public abstract class Task {
         this.isDone = false;
     }
 
+    public void markAsDoneFile() {
+        this.isDone = true;
+    }
+
     public void markAsDone() {
         this.isDone = true;
         System.out.println("*************************************************");
@@ -30,6 +34,17 @@ public abstract class Task {
             return "[X] ";
         }
         return "[ ] ";
+    }
+
+    public String writeToFile() {
+        return this.getMarkAsInt() + "|" + this.description;
+    }
+
+    private int getMarkAsInt() {
+        if (this.isDone) {
+            return 1;
+        }
+        return 0;
     }
 
     @Override

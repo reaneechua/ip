@@ -14,31 +14,42 @@ public class Parser {
     }
 
     public boolean parseCommands(TaskList taskList) {
-        this.userInput = this.scanner.nextLine(); //if input isn't valid, return false
-        String userString = this.userInput;
-        if (userString.equals("bye")) {
-            return false;
-        } else {
-            if (userString.equals("list")) {
+        this.userInput = this.scanner.nextLine();
+        String userString = this.userInput.toLowerCase();
+        switch (userString.split(" ", 2)[0]) {
+            case "bye":
+                return false;
+            case "list":
                 System.out.print(taskList);
-            } else if (userString.split(" ")[0].equals("mark")){
-                int taskNum = Integer.parseInt(userString.split(" ")[1]);
-                taskList.markDone(taskNum);
+                break;
+            case "mark":
+                int markTaskNum = Integer.parseInt(userString.split(" ")[1]);
+                taskList.markDone(markTaskNum);
                 Storage.writeToFile(taskList);
-            } else if (userString.split(" ")[0].equals("unmark")) {
-                int taskNum = Integer.parseInt(userString.split(" ")[1]);
-                taskList.unmarkDone(taskNum);
+                break;
+            case "unmark":
+                int unmarkTaskNum = Integer.parseInt(userString.split(" ")[1]);
+                taskList.unmarkDone(unmarkTaskNum);
                 Storage.writeToFile(taskList);
-            } else if (userString.contains("todo") || userString.contains("deadline") || userString.contains("event")) { // add tasks
-                taskList.addTask(userString);
+                break;
+            case "todo":
+            case "deadline":
+            case "event":
+                try {
+                    taskList.addTask(userString);
+                    Storage.writeToFile(taskList);
+                } catch (IllegalArgumentException e) {
+                    Ui.printInvalidDate();
+                }
+                break;
+            case "delete":
+                int deleteTaskNum = Integer.parseInt(userString.split(" ")[1]);
+                taskList.removeTask(deleteTaskNum);
                 Storage.writeToFile(taskList);
-            } else if (userString.contains("delete")) {
-                int i = Integer.parseInt(userString.split(" ")[1]);
-                taskList.removeTask(i);
-                Storage.writeToFile(taskList);
-            } else {
+                break;
+            default:
                 Ui.printInvalidCommand();
-            }
+                break;
         }
         return true;
     }

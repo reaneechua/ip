@@ -32,9 +32,15 @@ public class Ui {
         System.out.println("*************************************************");
     }
 
+    public static void printInvalidDescription() {
+        System.out.println("*************************************************");
+        System.out.println("descwiptwion of a todo cawn't be empty! twy again :3");
+        System.out.println("*************************************************");
+    }
+
     public static void printInvalidDate() {
         System.out.println("*************************************************");
-        System.out.println("date and time entewed shouwd be in yyyy-MM-dd HHmm </3");
+        System.out.println("date and time entewed shouwd be in yyyy-MM-dd </3");
         System.out.println("*************************************************");
     }
 }
