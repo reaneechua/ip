@@ -1,18 +1,33 @@
 package hewwokitty.task;
 
+/**
+ * Represents the task that user wants to keep track of, as an Object
+ */
 public abstract class Task {
     private boolean isDone;
     private String description;
 
+    /**
+     * Returns a Task object containing the description
+     * @param description A String describing what the task is for
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
     }
 
+    /**
+     * Marks a Task as completed when loading from file
+     * Does not print the Task completion message
+     */
     public void markAsDoneFile() {
         this.isDone = true;
     }
 
+    /**
+     * Marks a Task as completed based on user input
+     * Prints a completion message
+     */
     public void markAsDone() {
         this.isDone = true;
         System.out.println("*************************************************");
@@ -21,6 +36,10 @@ public abstract class Task {
         System.out.println("*************************************************");
     }
 
+    /**
+     * Unmarks a Task as completed
+     * Prints an incompletion message
+     */
     public void unmarkAsDone() {
         this.isDone = false;
         System.out.println("*************************************************");
@@ -36,6 +55,11 @@ public abstract class Task {
         return "[ ] ";
     }
 
+    /**
+     * Formats a string into the format meant to save to file
+     * The string displays isDone as 0 or 1 if it has been completed
+     * @return A String that has been formatted with isDone and the Task description
+     */
     public String writeToFile() {
         return this.getMarkAsInt() + "|" + this.description;
     }
@@ -47,6 +71,11 @@ public abstract class Task {
         return 0;
     }
 
+    /**
+     * Formats a string into the format that is displayed to the user
+     * The String displays isDone and the Task description
+     * @return A String to display the Task information to the user
+     */
     @Override
     public String toString() {
         return this.printIsDone() + this.description;

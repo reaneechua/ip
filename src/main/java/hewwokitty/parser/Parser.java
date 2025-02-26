@@ -5,14 +5,26 @@ import hewwokitty.task.TaskList;
 import hewwokitty.storage.Storage;
 import hewwokitty.ui.Ui;
 
+/**
+ * Parser parses user input
+ * Allows user to interact with the chatbot
+ */
 public class Parser {
     private Scanner scanner;
     private String userInput = "";
 
+    /**
+     * Returns a Parser object that reads input from the user
+     */
     public Parser() {
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Returns a boolean value indicating whether a command is valid and has been executed
+     * @param taskList - TaskList from main that consists of Tasks that have been added by the user
+     * @return false if command user input is "bye", else true
+     */
     public boolean parseCommands(TaskList taskList) {
         this.userInput = this.scanner.nextLine();
         String userString = this.userInput.toLowerCase();

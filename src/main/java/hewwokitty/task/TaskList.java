@@ -3,24 +3,48 @@ package hewwokitty.task;
 import java.util.ArrayList;
 import hewwokitty.ui.Ui;
 
+/**
+ * A list of Task objects
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
 
+    /**
+     * Returns an empty TaskList
+     */
     public TaskList() {
         this.tasks = new ArrayList<Task>();
     }
 
+    /**
+     * Get the number of Tasks in a TaskList
+     * @return An int with the number of Tasks in the TaskList
+     */
     public int getSize() {
         return this.tasks.size();
     }
+
+    /**
+     * Marks Task as done at a given order in the TaskList
+     * @param i An int representing the order of the Task in TaskList
+     */
     public void markDone(int i) {
         this.tasks.get(i-1).markAsDone();
     }
 
+    /**
+     * Unmarks Task as done at a given order in the TaskList
+     * @param i An int representing the order of the Task in TaskList
+     */
     public void unmarkDone(int i) {
         this.tasks.get(i-1).unmarkAsDone();
     }
 
+    /**
+     * Adds a Task to the TaskList based on the user specifications
+     * Checks user input and creates a Todo, Deadline or Event object accordingly
+     * @param userString A String that consists of the user input
+     */
     public void addTask(String userString) {
         Task t = null;
         String message;
@@ -59,6 +83,10 @@ public class TaskList {
         }
     }
 
+    /**
+     * Removes a Task from TaskList
+     * @param i An integer representing the order of the Task in the TaskList
+     */
     public void removeTask(int i) {
         System.out.println("*************************************************");
         System.out.println("i've wemoved youw task: \n" + this.tasks.get(i-1).toString());
@@ -67,10 +95,18 @@ public class TaskList {
         System.out.println("*************************************************");
     }
 
+    /**
+     * Adds each Task in the data/hewwoTasks.txt file to a TaskList
+     * @param task A Task read from the data file
+     */
     public void addTaskFromFile(Task task) {
         this.tasks.add(task);
     }
 
+    /**
+     * Formats all the Tasks in the TaskList to be written to an output file
+     * @return All the Tasks in TaskList as a String
+     */
     public String writeToFile() {
         String s = "";
         for (Task t : tasks) {
@@ -79,6 +115,10 @@ public class TaskList {
         return s;
     }
 
+    /**
+     * Formats all the Taks in the TaskList to be displayed to the user
+     * @return All the Tasks in TaskList as a String
+     */
     @Override
     public String toString() {
         String border = "*************************************************\n";
