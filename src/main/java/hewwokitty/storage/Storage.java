@@ -38,10 +38,16 @@ public class Storage {
                 String line = scanner.nextLine();
                 Task t = null;
                 String marked;
+                String command;
+                String temp;
                 boolean isMarked = false;
                 String message;
-                String command = line.split("\\|")[0];
-                String temp = line.split("\\|", 2)[1];
+                try {
+                    command = line.split("\\|")[0];
+                    temp = line.split("\\|", 2)[1];
+                } catch (Exception e) {
+                    return taskList;
+                }
 
                 switch (command) {
                     case "T":

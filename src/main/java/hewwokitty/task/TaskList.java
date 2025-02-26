@@ -10,6 +10,9 @@ public class TaskList {
         this.tasks = new ArrayList<Task>();
     }
 
+    public int getSize() {
+        return this.tasks.size();
+    }
     public void markDone(int i) {
         this.tasks.get(i-1).markAsDone();
     }
