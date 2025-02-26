@@ -129,4 +129,19 @@ public class TaskList {
         }
         return border + s + border;
     }
+
+    public void findTasks(String userString) {
+        String border = "*************************************************\n";
+        String title = "hewe awe the matching tasks in youw wist!\n";
+        String s = border + title;
+        String keyword = userString.split(" ",2)[1];
+        int count = 1;
+        for (Task t : this.tasks) {
+            if (t.getDescription().contains(keyword)) {
+                s = s + count + "." + t.toString() + "\n";
+                count++;
+            }
+        }
+        System.out.print(s + border);
+    }
 }

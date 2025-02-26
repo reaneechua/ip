@@ -59,6 +59,9 @@ public class Parser {
                 taskList.removeTask(deleteTaskNum);
                 Storage.writeToFile(taskList);
                 break;
+            case "find":
+                taskList.findTasks(userString);
+                break;
             default:
                 Ui.printInvalidCommand();
                 break;

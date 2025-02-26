@@ -17,6 +17,13 @@ public abstract class Task {
     }
 
     /**
+     * Returns the description of the Task
+     * @return A String containing the task description
+     */
+    public String getDescription() {
+        return this.description;
+    }
+    /**
      * Marks a Task as completed when loading from file
      * Does not print the Task completion message
      */
