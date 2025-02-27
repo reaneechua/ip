@@ -1,17 +1,17 @@
 package hewwokitty.storage;
 
-import java.util.Scanner;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+import hewwokitty.task.Event;
+import hewwokitty.task.Deadline;
 import hewwokitty.task.TaskList;
 import hewwokitty.task.Task;
 import hewwokitty.task.Todo;
-import hewwokitty.task.Event;
-import hewwokitty.task.Deadline;
 
 /**
  * Responsible for writing Tasks to and reading Tasks from file
@@ -63,38 +63,38 @@ public class Storage {
                 }
 
                 switch (command) {
-                    case "T":
-                        marked = temp.split("\\|")[0];
-                        isMarked = checkMarked(marked);
-                        message = temp.split("\\|", 2)[1];
-                        t = new Todo(message);
-                        if (isMarked) {
-                            t.markAsDoneFile();
-                        }
-                        break;
-                    case "D":
-                        marked = temp.split("\\|")[0];
-                        isMarked = checkMarked(marked);
-                        message = temp.split("\\|")[1];
-                        String byDate = temp.split("\\|")[2];
-                        t = new Deadline(message, byDate);
-                        if (isMarked) {
-                            t.markAsDoneFile();
-                        }
-                        break;
-                    case "E":
-                        marked = temp.split("\\|")[0];
-                        isMarked = checkMarked(marked);
-                        message = temp.split("\\|")[1];
-                        String fromDate = temp.split("\\|")[2];
-                        String toDate = temp.split("\\|")[3];
-                        t = new Event(message, fromDate, toDate);
-                        if (isMarked) {
-                            t.markAsDoneFile();
-                        }
-                        break;
-                    default:
-                        break;
+                case "T":
+                    marked = temp.split("\\|")[0];
+                    isMarked = checkMarked(marked);
+                    message = temp.split("\\|", 2)[1];
+                    t = new Todo(message);
+                    if (isMarked) {
+                        t.markAsDoneFile();
+                    }
+                    break;
+                case "D":
+                    marked = temp.split("\\|")[0];
+                    isMarked = checkMarked(marked);
+                    message = temp.split("\\|")[1];
+                    String byDate = temp.split("\\|")[2];
+                    t = new Deadline(message, byDate);
+                    if (isMarked) {
+                        t.markAsDoneFile();
+                    }
+                    break;
+                case "E":
+                    marked = temp.split("\\|")[0];
+                    isMarked = checkMarked(marked);
+                    message = temp.split("\\|")[1];
+                    String fromDate = temp.split("\\|")[2];
+                    String toDate = temp.split("\\|")[3];
+                    t = new Event(message, fromDate, toDate);
+                    if (isMarked) {
+                        t.markAsDoneFile();
+                    }
+                    break;
+                default:
+                    break;
                 }
                 if (t != null) {
                     taskList.addTaskFromFile(t);

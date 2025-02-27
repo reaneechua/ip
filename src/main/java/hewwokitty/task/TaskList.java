@@ -29,7 +29,7 @@ public class TaskList {
      * @param i An int representing the order of the Task in TaskList
      */
     public void markDone(int i) {
-        this.tasks.get(i-1).markAsDone();
+        this.tasks.get(i - 1).markAsDone();
     }
 
     /**
@@ -37,7 +37,7 @@ public class TaskList {
      * @param i An int representing the order of the Task in TaskList
      */
     public void unmarkDone(int i) {
-        this.tasks.get(i-1).unmarkAsDone();
+        this.tasks.get(i - 1).unmarkAsDone();
     }
 
     /**
@@ -46,33 +46,34 @@ public class TaskList {
      * @param userString A String that consists of the user input
      */
     public void addTask(String userString) {
+        assert userString != null;
         Task t = null;
         String message;
         String command = userString.split(" ")[0];
         String temp;
 
         switch (command) {
-            case "todo":
-                temp = userString.split(" ",2)[1];
-                if (!temp.equals("")) {
-                    t = new Todo(temp);
-                } else {
-                    Ui.printInvalidDescription();
-                }
-                break;
-            case "deadline":
-                temp = userString.split(" ",2)[1];
-                message = temp.split("/")[0];
-                String date = temp.split("/")[1].split(" ",2)[1];
-                t = new Deadline(message, date);
-                break;
-            case "event":
-                temp = userString.split(" ",2)[1];
-                message = temp.split("/")[0];
-                String fromDate = temp.split("/")[1].split(" ",2)[1];
-                String toDate = temp.split("/")[2].split(" ",2)[1];
-                t = new Event(message, fromDate, toDate);
-                break;
+        case "todo":
+            temp = userString.split(" " , 2)[1];
+            if (!temp.equals("")) {
+                t = new Todo(temp);
+            } else {
+                Ui.printInvalidDescription();
+            }
+            break;
+        case "deadline":
+            temp = userString.split(" " , 2)[1];
+            message = temp.split("/")[0];
+            String date = temp.split("/")[1].split(" " , 2)[1];
+            t = new Deadline(message, date);
+            break;
+        case "event":
+            temp = userString.split(" ",2)[1];
+            message = temp.split("/")[0];
+            String fromDate = temp.split("/")[1].split(" " , 2)[1];
+            String toDate = temp.split("/")[2].split(" " , 2)[1];
+            t = new Event(message, fromDate, toDate);
+            break;
         }
         if (t != null) {
             this.tasks.add(t);
@@ -89,8 +90,8 @@ public class TaskList {
      */
     public void removeTask(int i) {
         System.out.println("*************************************************");
-        System.out.println("i've wemoved youw task: \n" + this.tasks.get(i-1).toString());
-        this.tasks.remove(i-1);
+        System.out.println("i've wemoved youw task: \n" + this.tasks.get(i - 1).toString());
+        this.tasks.remove(i - 1);
         System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
         System.out.println("*************************************************");
     }
@@ -124,12 +125,16 @@ public class TaskList {
         String border = "*************************************************\n";
         String s = "";
         for (int i = 0; i < this.tasks.size(); i++) {
-            int currTask = i+1;
+            int currTask = i + 1;
             s +=  currTask + ". " + this.tasks.get(i).toString() + "\n";
         }
         return border + s + border;
     }
 
+    /**
+     * Finds a Task in TaskList that contains the keyword entered by the user
+     * @param userString A String representing user input
+     */
     public void findTasks(String userString) {
         String border = "*************************************************\n";
         String title = "hewe awe the matching tasks in youw wist!\n";
