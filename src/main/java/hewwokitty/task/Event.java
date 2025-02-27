@@ -21,8 +21,7 @@ public class Event extends Task {
 
     /**
      * Formats a string into the format meant to save to file
-     * @return A String that has been formatted with the type Event, isDone,
-     * fromDate and toDate
+     * @return A String that has been formatted with the type Event, isDone, fromDate and toDate
      */
     @Override
     public String writeToFile() {
