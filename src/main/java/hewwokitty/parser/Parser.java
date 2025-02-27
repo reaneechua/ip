@@ -27,8 +27,8 @@ public class Parser {
      * @return false if command user input is "bye", else true
      */
     public boolean parseCommands(String userInput, TaskList taskList) {
-        assert userInput != null : "User input should not be null";
-        assert taskList != null : "TaskList should not be null";
+        assert userInput != null : "usew input should not be nuww";
+        assert taskList != null : "TaskList should not be nuww";
         this.userInput = userInput;
         String userString = this.userInput.toLowerCase();
         switch (userString.split(" ", 2)[0]) {

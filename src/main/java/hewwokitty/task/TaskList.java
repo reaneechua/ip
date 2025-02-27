@@ -136,6 +136,7 @@ public class TaskList {
      * @param userString A String representing user input
      */
     public void findTasks(String userString) {
+        assert userString != null : "usew input should not be nuww";
         String border = "*************************************************\n";
         String title = "hewe awe the matching tasks in youw wist!\n";
         String s = border + title;
