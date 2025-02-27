@@ -1,12 +1,10 @@
 package hewwokitty;
 
-import hewwokitty.parser.Parser;
-import hewwokitty.storage.Storage;
-import hewwokitty.task.TaskList;
-import hewwokitty.ui.Ui;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -15,8 +13,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+
+import hewwokitty.parser.Parser;
+import hewwokitty.storage.Storage;
+import hewwokitty.task.TaskList;
+import hewwokitty.ui.Ui;
 
 /**
  * JavaFX GUI for HewwoKitty chatbot.

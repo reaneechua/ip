@@ -19,6 +19,8 @@ dependencies {
 
     String javaFxVersion = '17.0.7'
 
+    implementation 'org.openjfx:javafx-controls:17'
+    implementation 'org.openjfx:javafx-fxml:17'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'mac'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'linux'
@@ -34,7 +36,7 @@ dependencies {
 }
 
 //checkstyle {
-//    toolVersion = '10.2'
+//   toolVersion = '10.2'
 //}
 
 test {

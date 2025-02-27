@@ -1,9 +1,11 @@
 package hewwokitty.storage;
 
-import hewwokitty.task.TaskList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import hewwokitty.task.TaskList;
 
 public class StorageTest {
     @BeforeEach

@@ -1,11 +1,11 @@
 package hewwokitty;
 
+import java.util.Scanner;
+
 import hewwokitty.parser.Parser;
 import hewwokitty.storage.Storage;
 import hewwokitty.task.TaskList;
 import hewwokitty.ui.Ui;
-
-import java.util.Scanner;
 
 /**
  * Main chatbot class

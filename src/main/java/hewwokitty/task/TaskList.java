@@ -77,11 +77,14 @@ public class TaskList {
             t = new Deadline(message, date);
             break;
         case "event":
-            temp = userString.split(" ",2)[1];
+            temp = userString.split(" " , 2)[1];
             message = temp.split("/")[0];
             String fromDate = temp.split("/")[1].split(" " , 2)[1];
             String toDate = temp.split("/")[2].split(" " , 2)[1];
             t = new Event(message, fromDate, toDate);
+            break;
+        default:
+            t = null;
             break;
         }
         if (t != null) {
@@ -127,6 +130,9 @@ public class TaskList {
      */
     @Override
     public String toString() {
+        if (this.getSize() == 0) {
+            return "you hawve no tasks fow me to wist!";
+        }
         String s = "";
         for (int i = 0; i < this.tasks.size(); i++) {
             int currTask = i + 1;
@@ -142,7 +148,7 @@ public class TaskList {
     public void findTasks(String userString) {
         String title;
         String s = "";
-        String keyword = userString.split(" ",2)[1];
+        String keyword = userString.split(" " , 2)[1];
         int count = 1;
         for (Task t : this.tasks) {
             if (t.getDescription().toLowerCase().contains(keyword)) {

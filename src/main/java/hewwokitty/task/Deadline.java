@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-import hewwokitty.ui.Ui;
-
 /**
  * Represents a type of Task that needs to be completed before a certain date
  */
@@ -28,8 +26,7 @@ public class Deadline extends Task {
 
     /**
      * Formats a string into the format meant to save to file
-     * @return A String that has been formatted with the type Deadline, isDone,
-     * the deadline description and when it is due
+     * @return A String that has been formatted with the type Deadline, isDone, and the deadline description and when it is due
      */
     @Override
     public String writeToFile() {
