@@ -126,7 +126,7 @@ public class TaskList {
     }
 
     /**
-     * Formats all the Taks in the TaskList to be displayed to the user
+     * Formats all the Tasks in the TaskList to be displayed to the user
      * @return All the Tasks in TaskList as a String
      */
     @Override
