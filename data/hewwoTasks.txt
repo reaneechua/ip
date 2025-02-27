@@ -1,2 +1,2 @@
 T|0|cry
-T|1|drugs
+T|0|die
