@@ -1,7 +1,5 @@
 package hewwokitty.parser;
 
-import java.util.Scanner;
-
 import hewwokitty.storage.Storage;
 import hewwokitty.task.TaskList;
 import hewwokitty.ui.Ui;
@@ -26,7 +24,7 @@ public class Parser {
      * @param taskList TaskList from main that consists of Tasks that have been added by the user
      * @return false if command user input is "bye", else true
      */
-    public boolean parseCommands(String userInput, TaskList taskList) {
+    public boolean processUserCommands(String userInput, TaskList taskList) {
         assert userInput != null : "User input should not be null";
         assert taskList != null : "TaskList should not be null";
         this.userInput = userInput;
@@ -38,14 +36,22 @@ public class Parser {
             System.out.print(taskList);
             break;
         case "mark":
-            int markTaskNum = Integer.parseInt(userString.split(" ")[1]);
-            taskList.markDone(markTaskNum);
-            Storage.writeToFile(taskList);
+            try {
+                int markTaskNum = Integer.parseInt(userString.split(" ")[1]);
+                taskList.markDone(markTaskNum);
+                Storage.writeToFile(taskList);
+            } catch (IllegalArgumentException e) {
+                Ui.printInvalidTaskNumber();
+            }
             break;
         case "unmark":
-            int unmarkTaskNum = Integer.parseInt(userString.split(" ")[1]);
-            taskList.unmarkDone(unmarkTaskNum);
-            Storage.writeToFile(taskList);
+            try {
+                int unmarkTaskNum = Integer.parseInt(userString.split(" ")[1]);
+                taskList.unmarkDone(unmarkTaskNum);
+                Storage.writeToFile(taskList);
+            } catch (IllegalArgumentException e) {
+                Ui.printInvalidTaskNumber();
+            }
             break;
         case "todo":
         case "deadline":

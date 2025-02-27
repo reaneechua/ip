@@ -19,6 +19,7 @@ import java.io.PrintStream;
 /**
  * JavaFX GUI for HewwoKitty chatbot.
  */
+@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
 public class HewwoKittyGUI extends Application {
     private TaskList taskList;
     private Parser parser;
@@ -67,13 +68,12 @@ public class HewwoKittyGUI extends Application {
         if (!input.isEmpty()) {
             appendToChat("You: " + input);
 
-            // Ensure only user input is passed to the parser
-            boolean isRunning = parser.parseCommands(input, taskList);
+            boolean isRunning = parser.processUserCommands(input, taskList);
             appendCapturedOutput();
             userInput.clear();
 
             if (!isRunning) {
-                appendToChat("HewwoKitty: hewwo kitty is cwosing uwu~");
+                appendToChat("hewwo kitty is cwosing uwu~");
                 System.exit(0);
             }
         }
