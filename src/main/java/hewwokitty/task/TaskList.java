@@ -1,6 +1,7 @@
 package hewwokitty.task;
 
 import java.util.ArrayList;
+
 import hewwokitty.ui.Ui;
 
 /**
@@ -29,7 +30,11 @@ public class TaskList {
      * @param i An int representing the order of the Task in TaskList
      */
     public void markDone(int i) {
-        this.tasks.get(i - 1).markAsDone();
+        try {
+            this.tasks.get(i - 1).markAsDone();
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("");
+        }
     }
 
     /**
@@ -37,7 +42,11 @@ public class TaskList {
      * @param i An int representing the order of the Task in TaskList
      */
     public void unmarkDone(int i) {
-        this.tasks.get(i - 1).unmarkAsDone();
+        try {
+            this.tasks.get(i - 1).unmarkAsDone();
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("");
+        }
     }
 
     /**

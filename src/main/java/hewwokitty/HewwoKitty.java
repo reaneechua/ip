@@ -20,7 +20,7 @@ public class HewwoKitty {
         Ui.printStart();
         while (isRunning) {
             String userInput = sc.nextLine();
-            isRunning = parser.parseCommands(userInput, taskList);
+            isRunning = parser.processUserCommands(userInput, taskList);
         }
         Ui.printBye();
     }
