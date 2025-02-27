@@ -1,6 +1,7 @@
 package hewwokitty.task;
 
 import java.util.ArrayList;
+
 import hewwokitty.ui.Ui;
 
 /**
@@ -29,7 +30,11 @@ public class TaskList {
      * @param i An int representing the order of the Task in TaskList
      */
     public void markDone(int i) {
-        this.tasks.get(i - 1).markAsDone();
+        try {
+            this.tasks.get(i - 1).markAsDone();
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("");
+        }
     }
 
     /**
@@ -37,7 +42,11 @@ public class TaskList {
      * @param i An int representing the order of the Task in TaskList
      */
     public void unmarkDone(int i) {
-        this.tasks.get(i - 1).unmarkAsDone();
+        try {
+            this.tasks.get(i - 1).unmarkAsDone();
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("");
+        }
     }
 
     /**
@@ -136,18 +145,22 @@ public class TaskList {
      * @param userString A String representing user input
      */
     public void findTasks(String userString) {
-        assert userString != null : "usew input should not be nuww";
         String border = "*************************************************\n";
-        String title = "hewe awe the matching tasks in youw wist!\n";
-        String s = border + title;
+        String title;
+        String s = "";
         String keyword = userString.split(" ",2)[1];
         int count = 1;
         for (Task t : this.tasks) {
-            if (t.getDescription().contains(keyword)) {
+            if (t.getDescription().toLowerCase().contains(keyword)) {
                 s = s + count + "." + t.toString() + "\n";
                 count++;
             }
         }
-        System.out.print(s + border);
+        if (count == 1) {
+            title = "sowwy pookie, i couwdn't fiwnd any matches :3\n";
+        } else {
+            title = "hewe awe the matching tasks in youw wist!\n";
+        }
+        System.out.print(border + title + s + border);
     }
 }

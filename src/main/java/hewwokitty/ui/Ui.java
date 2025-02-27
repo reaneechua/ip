@@ -60,4 +60,14 @@ public class Ui {
         System.out.println("date and time entewed shouwd be in yyyy-MM-dd </3");
         System.out.println("*************************************************");
     }
+
+    /**
+     * Displays a message to the user when they have entered an invalid task number
+     */
+    public static void printInvalidTaskNumber() {
+        System.out.println("*************************************************");
+        System.out.println("the task numbew you hawve entewed is invawid :(");
+        System.out.println("*************************************************");
+    }
+
 }
