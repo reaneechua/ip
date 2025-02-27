@@ -146,16 +146,21 @@ public class TaskList {
      */
     public void findTasks(String userString) {
         String border = "*************************************************\n";
-        String title = "hewe awe the matching tasks in youw wist!\n";
-        String s = border + title;
+        String title;
+        String s = "";
         String keyword = userString.split(" ",2)[1];
         int count = 1;
         for (Task t : this.tasks) {
-            if (t.getDescription().contains(keyword)) {
+            if (t.getDescription().toLowerCase().contains(keyword)) {
                 s = s + count + "." + t.toString() + "\n";
                 count++;
             }
         }
-        System.out.print(s + border);
+        if (count == 1) {
+            title = "sowwy pookie, i couwdn't fiwnd any matches :3\n";
+        } else {
+            title = "hewe awe the matching tasks in youw wist!\n";
+        }
+        System.out.print(border + title + s + border);
     }
 }
