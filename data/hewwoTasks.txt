@@ -1,2 +1,2 @@
 T|0|cry
-T|0|die
+D|0|homework |2025-01-01

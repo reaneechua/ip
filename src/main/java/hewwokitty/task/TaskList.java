@@ -86,10 +86,8 @@ public class TaskList {
         }
         if (t != null) {
             this.tasks.add(t);
-            System.out.println("*************************************************");
             System.out.println("i've added youw new task: \n" + t);
             System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
-            System.out.println("*************************************************");
         }
     }
 
@@ -98,11 +96,9 @@ public class TaskList {
      * @param i An integer representing the order of the Task in the TaskList
      */
     public void removeTask(int i) {
-        System.out.println("*************************************************");
         System.out.println("i've wemoved youw task: \n" + this.tasks.get(i - 1).toString());
         this.tasks.remove(i - 1);
         System.out.println("you now hawve " + this.tasks.size() + " tasks, ganbatte");
-        System.out.println("*************************************************");
     }
 
     /**
@@ -131,13 +127,12 @@ public class TaskList {
      */
     @Override
     public String toString() {
-        String border = "*************************************************\n";
         String s = "";
         for (int i = 0; i < this.tasks.size(); i++) {
             int currTask = i + 1;
             s +=  currTask + ". " + this.tasks.get(i).toString() + "\n";
         }
-        return border + s + border;
+        return "hewe awe aww youw tasks ono\n" + s;
     }
 
     /**
@@ -145,7 +140,6 @@ public class TaskList {
      * @param userString A String representing user input
      */
     public void findTasks(String userString) {
-        String border = "*************************************************\n";
         String title;
         String s = "";
         String keyword = userString.split(" ",2)[1];
@@ -161,6 +155,6 @@ public class TaskList {
         } else {
             title = "hewe awe the matching tasks in youw wist!\n";
         }
-        System.out.print(border + title + s + border);
+        System.out.print(title + s);
     }
 }

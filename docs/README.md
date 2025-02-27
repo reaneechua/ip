@@ -1,6 +1,6 @@
 # HewwoKitty Usew Guide UwU
 
-![img.png](img.png)
+![Ui.png](Ui.png)
 
 ## Managing Tasks
 
